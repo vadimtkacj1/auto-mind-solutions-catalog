@@ -2,36 +2,38 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
 
-# Install dependencies
+# Установка зависимостей
 COPY package*.json ./
 RUN npm install
 
-# Copy source code
-COPY . .
-
-# Build Arguments
+# Переменные сборки (Build Arguments)
 ARG VITE_BASE_URL
 ENV VITE_BASE_URL=${VITE_BASE_URL}
-ENV NEXT_PUBLIC_API_URL=${VITE_BASE_URL}
 
-# Run the build
+# Копируем исходный код
+COPY . .
+
+# Увеличиваем лимит памяти для стабильной сборки Vite
+ENV NODE_OPTIONS="--max-old-space-size=4096"
 RUN npm run build
 
-# --- STAGE 2: Runner ---
-FROM node:20-alpine AS runner
-WORKDIR /app
+# --- STAGE 2: Runner (Nginx) ---
+FROM nginx:stable-alpine AS runner
 
-ENV NODE_ENV=production
-# Force Next.js to run on port 80 internally
-ENV PORT=80
-ENV HOSTNAME="0.0.0.0"
+# Копируем статику из Vite (папка dist) в стандартную папку Nginx
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Copy only necessary files for the standalone server
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
+# Настройка Nginx для поддержки SPA (Single Page Application)
+# Это предотвратит 404 ошибки при обновлении страниц
+RUN echo 'server { \
+    listen 80; \
+    location / { \
+        root /usr/share/nginx/html; \
+        index index.html; \
+        try_files $uri $uri/ /index.html; \
+    } \
+}' > /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
-# The 'standalone' mode creates a server.js file to start the app
-CMD ["node", "server.js"]
+CMD ["nginx", "-g", "daemon off;"]
