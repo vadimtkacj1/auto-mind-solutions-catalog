@@ -33,7 +33,7 @@ export function AnimatedBackground() {
       duration: Math.random() * 15 + 15, // Slightly faster for more "life"
       delay: Math.random() * -20,
       color: colors[Math.floor(Math.random() * colors.length)],
-      rotateDirection: Math.random() > 0.5 ? 1 : -1,
+      rotateDirection: (Math.random() > 0.5 ? 1 : -1) as 1 | -1
     }));
     setElements(generated);
   }, []);
