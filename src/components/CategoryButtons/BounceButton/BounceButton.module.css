@@ -1,0 +1,49 @@
+.bounceButton {
+  position: relative;
+  padding: 18px 48px;
+  border: none;
+  border-radius: 20px;
+  background: #6366f1;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+}
+
+.content {
+  display: inline-block;
+}
+
+.bounceButton:hover {
+  background: #4f46e5;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+  animation: buttonBounce 0.5s ease;
+}
+
+.bounceButton:hover .content {
+  animation: bounce 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  20% { transform: translateY(-10px); }
+  40% { transform: translateY(0); }
+  60% { transform: translateY(-5px); }
+  80% { transform: translateY(0); }
+}
+
+@keyframes buttonBounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.bounceButton.active {
+  background: #4338ca;
+  box-shadow: 0 8px 28px rgba(99, 102, 241, 0.5);
+}
+
+.bounceButton:active {
+  transform: scale(0.95);
+}

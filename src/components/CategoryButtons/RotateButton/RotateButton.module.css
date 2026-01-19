@@ -1,0 +1,79 @@
+.rotateButton {
+  position: relative;
+  padding: 24px 24px;
+  min-width: 140px;
+  min-height: 72px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.front,
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  border-radius: 6px;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.front {
+  background: #8b5cf6;
+  transform: rotateX(0deg);
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);
+}
+
+.back {
+  background: #7c3aed;
+  transform: rotateX(180deg);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.content {
+  display: inline-block;
+  backface-visibility: hidden;
+  transition: transform 0.3s ease;
+}
+
+.rotateButton:hover {
+  transform: scale(1.05);
+}
+
+.rotateButton:hover .front {
+  transform: rotateX(-180deg);
+}
+
+.rotateButton:hover .back {
+  transform: rotateX(0deg);
+}
+
+.rotateButton:hover .content {
+  transform: scale(1.1);
+}
+
+.rotateButton.active .front {
+  transform: rotateX(-180deg);
+}
+
+.rotateButton.active .back {
+  transform: rotateX(0deg);
+  background: #6d28d9;
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.5);
+}
+
+.rotateButton:active {
+  transform: scale(0.98);
+}

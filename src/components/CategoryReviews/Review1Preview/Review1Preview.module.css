@@ -1,0 +1,131 @@
+/* --- Main Container with brand radial glow --- */
+.preview {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(0, 230, 144, 0.08), transparent 70%);
+  padding: 1.25rem;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+/* --- Glassmorphism Card Effect --- */
+.card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 14px;
+  padding: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Moving shimmer sweep effect --- */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: shimmer 4s infinite ease-in-out;
+}
+
+@keyframes shimmer {
+  100% { left: 250%; }
+}
+
+.header {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.65rem;
+}
+
+/* --- Squircle Avatar with Glow --- */
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #00E690, #0070FF);
+  opacity: 0.7;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(0, 230, 144, 0.3);
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.name {
+  height: 7px;
+  width: 60%;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+}
+
+.role {
+  height: 5px;
+  width: 35%;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+
+/* --- Neon Star Accents --- */
+.stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 0.65rem;
+}
+
+.star {
+  font-size: 0.55rem;
+  color: #00E690;
+  filter: drop-shadow(0 0 4px rgba(0, 230, 144, 0.6));
+}
+
+/* --- Skeleton Lines with Pulse --- */
+.text, .textShort {
+  background: linear-gradient(
+    90deg, 
+    rgba(255, 255, 255, 0.05) 0%, 
+    rgba(255, 255, 255, 0.1) 50%, 
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  background-size: 200% 100%;
+  animation: pulse 2.5s infinite ease-in-out;
+  border-radius: 3px;
+  margin-bottom: 0.3rem;
+}
+
+.text { height: 5px; width: 100%; }
+.textShort { height: 5px; width: 70%; }
+
+@keyframes pulse {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}

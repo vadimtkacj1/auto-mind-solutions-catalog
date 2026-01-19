@@ -1,0 +1,64 @@
+.pulseButton {
+  position: relative;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.3), rgba(233, 30, 99, 0.3));
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(156, 39, 176, 0.3);
+  transition: all 0.3s ease;
+}
+
+.pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(233, 30, 99, 0.4);
+  border-radius: 20px;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+}
+
+.pulseButton:hover {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.5), rgba(233, 30, 99, 0.5));
+  border-color: rgba(233, 30, 99, 0.6);
+  box-shadow: 0 0 30px rgba(233, 30, 99, 0.4);
+  transform: scale(1.05);
+}
+
+.pulseButton.active {
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.6), rgba(233, 30, 99, 0.6));
+  color: #fff;
+  border-color: rgba(233, 30, 99, 0.8);
+  box-shadow: 0 0 40px rgba(233, 30, 99, 0.5);
+}

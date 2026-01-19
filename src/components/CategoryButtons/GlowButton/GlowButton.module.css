@@ -1,0 +1,46 @@
+.glowButton {
+  position: relative;
+  padding: 18px 48px;
+  border: none;
+  border-radius: 14px;
+  background: #ec4899;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(236, 72, 153, 0.3);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+}
+
+.glow { display: none; }
+
+.glowButton:hover {
+  background: #db2777;
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(236, 72, 153, 0.7);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 35px rgba(236, 72, 153, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(236, 72, 153, 0.8);
+  }
+}
+
+.glowButton.active {
+  background: #be185d;
+  box-shadow: 0 0 45px rgba(236, 72, 153, 0.8);
+}
+
+.glowButton:active {
+  transform: scale(0.98);
+}

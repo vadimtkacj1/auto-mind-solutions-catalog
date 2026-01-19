@@ -1,0 +1,95 @@
+.filterBar {
+  width: 100%;
+  background: rgba(8, 10, 12, 0.9);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 1.5rem 0;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.header {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: right;
+  margin: 0;
+}
+
+.scrollWrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.categories {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  overflow-x: auto;
+  direction: rtl;
+  padding: 0.5rem 0;
+  
+  /* Standard hide scrollbar */
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+  
+  /* Improve drag feel */
+  cursor: grab;
+  user-select: none; /* Prevent text selection while dragging */
+  scroll-behavior: smooth; 
+}
+
+/* Disable smooth scroll while dragging for instant response */
+.categories.dragging {
+  scroll-behavior: auto;
+  cursor: grabbing;
+}
+
+.categories::-webkit-scrollbar {
+  display: none;
+}
+
+.categoryButton {
+  flex: 0 0 auto; /* Crucial: prevents buttons from shrinking */
+  padding: 0.75rem 1.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.categoryButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.categoryButton.active {
+  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+  border-color: #a78bfa;
+  color: white;
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .container { padding: 0 1rem; }
+  .categories { gap: 0.75rem; }
+  .categoryButton { padding: 0.6rem 1.25rem; font-size: 0.9rem; }
+}
