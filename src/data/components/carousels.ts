@@ -1,0 +1,68 @@
+import { ComponentItem } from '../types/ComponentItem';
+
+export const carousels: ComponentItem[] = [
+  {
+    id: 'carousel-1',
+    name: '3D Carousel',
+    nameHebrew: 'קרוסלה תלת מימדית',
+    category: 'carousel',
+    description: '3D rotating carousel with smooth transitions',
+    tags: ['3d', 'smooth', 'interactive'],
+  },
+  {
+    id: 'carousel-2',
+    name: 'Auto Slider',
+    nameHebrew: 'סליידר אוטומטי',
+    category: 'carousel',
+    description: 'Auto-playing carousel with navigation',
+    tags: ['auto', 'navigation', 'responsive'],
+  },
+  {
+    id: 'carousel-3',
+    name: 'Card Carousel',
+    nameHebrew: 'קרוסלת כרטיסים',
+    category: 'carousel',
+    description: 'Card-based carousel layout',
+    tags: ['cards', 'swipe', 'mobile-friendly'],
+  },
+  {
+    id: 'carousel-4',
+    name: 'Product Showcase',
+    nameHebrew: 'תצוגת מוצרים',
+    category: 'carousel',
+    description: 'E-commerce carousel with product details and pricing',
+    tags: ['ecommerce', 'products', 'shopping', 'hebrew'],
+  },
+  {
+    id: 'carousel-5',
+    name: 'Testimonial Slider',
+    nameHebrew: 'סליידר המלצות',
+    category: 'carousel',
+    description: 'Elegant testimonials carousel with ratings',
+    tags: ['testimonials', 'reviews', 'stars', 'hebrew'],
+  },
+  {
+    id: 'carousel-6',
+    name: 'Fullscreen Hero',
+    nameHebrew: 'קרוסלה במסך מלא',
+    category: 'carousel',
+    description: 'Fullscreen image carousel with overlays',
+    tags: ['fullscreen', 'hero', 'images', 'hebrew'],
+  },
+  {
+    id: 'carousel-7',
+    name: 'Multi-Item Grid',
+    nameHebrew: 'רשת רב פריטים',
+    category: 'carousel',
+    description: 'Carousel showing multiple items at once',
+    tags: ['grid', 'multiple', 'products', 'hebrew'],
+  },
+  {
+    id: 'carousel-8',
+    name: 'Gradient Slides',
+    nameHebrew: 'סליידים גרדיאנט',
+    category: 'carousel',
+    description: 'Modern carousel with gradient backgrounds',
+    tags: ['gradient', 'modern', 'animated', 'hebrew'],
+  },
+];

@@ -1,0 +1,68 @@
+import { ComponentItem } from '../types/ComponentItem';
+
+export const contactForms: ComponentItem[] = [
+  {
+    id: 'contact-1',
+    name: 'Modern Contact Form',
+    nameHebrew: 'טופס יצירת קשר מודרני',
+    category: 'contact-form',
+    description: 'Clean contact form with validation',
+    tags: ['validation', 'modern', 'user-friendly'],
+  },
+  {
+    id: 'contact-2',
+    name: 'Multi-Step Form',
+    nameHebrew: 'טופס רב-שלבי',
+    category: 'contact-form',
+    description: 'Multi-step contact form with progress',
+    tags: ['multi-step', 'progress', 'wizard'],
+  },
+  {
+    id: 'contact-3',
+    name: 'Floating Labels Form',
+    nameHebrew: 'טופס עם תוויות צפות',
+    category: 'contact-form',
+    description: 'Form with animated floating labels',
+    tags: ['floating', 'animated', 'elegant'],
+  },
+  {
+    id: 'contact-4',
+    name: 'Split Layout Contact',
+    nameHebrew: 'טופס יצירת קשר מפוצל',
+    category: 'contact-form',
+    description: 'Contact form with info sidebar layout',
+    tags: ['split', 'sidebar', 'info', 'icons', 'hebrew'],
+  },
+  {
+    id: 'contact-5',
+    name: 'Multi-Step Wizard',
+    nameHebrew: 'אשף רב שלבי',
+    category: 'contact-form',
+    description: 'Step-by-step form with progress indicator',
+    tags: ['wizard', 'steps', 'progress', 'validation', 'hebrew'],
+  },
+  {
+    id: 'contact-6',
+    name: 'Gradient Social Form',
+    nameHebrew: 'טופס עם רשתות חברתיות',
+    category: 'contact-form',
+    description: 'Colorful form with social media links',
+    tags: ['gradient', 'social', 'colorful', 'modern', 'hebrew'],
+  },
+  {
+    id: 'contact-7',
+    name: 'Appointment Booking',
+    nameHebrew: 'קביעת פגישה',
+    category: 'contact-form',
+    description: 'Form for scheduling appointments with calendar',
+    tags: ['appointment', 'calendar', 'booking', 'schedule', 'hebrew'],
+  },
+  {
+    id: 'contact-8',
+    name: 'Map Contact Form',
+    nameHebrew: 'טופס עם מפה',
+    category: 'contact-form',
+    description: 'Contact form with integrated Google Maps',
+    tags: ['map', 'location', 'google', 'minimal', 'hebrew'],
+  },
+];

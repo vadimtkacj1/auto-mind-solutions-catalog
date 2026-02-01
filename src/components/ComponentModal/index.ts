@@ -1,0 +1,1 @@
+export { ComponentModal } from './ComponentModal';

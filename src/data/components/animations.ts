@@ -1,0 +1,68 @@
+import { ComponentItem } from '../types/ComponentItem';
+
+export const animations: ComponentItem[] = [
+  {
+    id: 'animation-1',
+    name: 'Fade In Animation',
+    nameHebrew: 'אנימציית הופעה',
+    category: 'animations',
+    description: 'Smooth fade-in on scroll animation',
+    tags: ['fade', 'scroll', 'smooth'],
+  },
+  {
+    id: 'animation-2',
+    name: 'Parallax Effect',
+    nameHebrew: 'אפקט פרלקס',
+    category: 'animations',
+    description: 'Parallax scrolling effect',
+    tags: ['parallax', 'depth', 'modern'],
+  },
+  {
+    id: 'animation-3',
+    name: 'Hover Effects',
+    nameHebrew: 'אפקטי ריחוף',
+    category: 'animations',
+    description: 'Collection of hover animations',
+    tags: ['hover', 'interactive', 'micro-interactions'],
+  },
+  {
+    id: 'animation-4',
+    name: 'Staggered Cards',
+    nameHebrew: 'כרטיסים מדורגים',
+    category: 'animations',
+    description: 'Cards with staggered fade-in animation',
+    tags: ['cards', 'stagger', 'fade', 'hebrew'],
+  },
+  {
+    id: 'animation-5',
+    name: 'Floating Shapes',
+    nameHebrew: 'צורות צפות',
+    category: 'animations',
+    description: 'Animated floating background shapes',
+    tags: ['floating', 'background', 'shapes', 'hebrew'],
+  },
+  {
+    id: 'animation-6',
+    name: 'Hover Scale Cards',
+    nameHebrew: 'כרטיסים מתרחבים',
+    category: 'animations',
+    description: 'Pricing cards with hover scale effect',
+    tags: ['hover', 'scale', 'pricing', 'hebrew'],
+  },
+  {
+    id: 'animation-7',
+    name: 'Slide & Bounce Hero',
+    nameHebrew: 'באנר עם אנימציות',
+    category: 'animations',
+    description: 'Hero section with slide and bounce animations',
+    tags: ['hero', 'slide', 'bounce', 'hebrew'],
+  },
+  {
+    id: 'animation-8',
+    name: 'Image Gallery Hover',
+    nameHebrew: 'גלריה אינטראקטיבית',
+    category: 'animations',
+    description: 'Gallery with hover zoom and blur effects',
+    tags: ['gallery', 'hover', 'zoom', 'blur', 'hebrew'],
+  },
+];

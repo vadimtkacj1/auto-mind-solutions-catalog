@@ -1,0 +1,68 @@
+import { ComponentItem } from '../types/ComponentItem';
+
+export const fonts: ComponentItem[] = [
+  {
+    id: 'font-1',
+    name: 'Noto Sans Hebrew',
+    nameHebrew: 'נוטו סאנס עברית',
+    category: 'fonts',
+    description: 'Modern Hebrew font with excellent readability',
+    tags: ['hebrew', 'sans-serif', 'modern'],
+  },
+  {
+    id: 'font-2',
+    name: 'Assistant',
+    nameHebrew: 'אסיסטנט',
+    category: 'fonts',
+    description: 'Clean Hebrew typeface',
+    tags: ['hebrew', 'clean', 'versatile'],
+  },
+  {
+    id: 'font-3',
+    name: 'Rubik',
+    nameHebrew: 'רוביק',
+    category: 'fonts',
+    description: 'Geometric sans-serif font',
+    tags: ['geometric', 'modern', 'bilingual'],
+  },
+  {
+    id: 'font-4',
+    name: 'Heebo',
+    nameHebrew: 'היבו',
+    category: 'fonts',
+    description: 'Modern Hebrew sans-serif with multiple weights',
+    tags: ['hebrew', 'sans-serif', 'versatile', 'weights'],
+  },
+  {
+    id: 'font-5',
+    name: 'Open Sans',
+    nameHebrew: 'אופן סאנס',
+    category: 'fonts',
+    description: 'Humanist sans serif for web and print',
+    tags: ['sans-serif', 'humanist', 'readable', 'web'],
+  },
+  {
+    id: 'font-6',
+    name: 'Playfair Display',
+    nameHebrew: 'פלייפייר',
+    category: 'fonts',
+    description: 'Elegant serif font for headlines',
+    tags: ['serif', 'elegant', 'headlines', 'luxury'],
+  },
+  {
+    id: 'font-7',
+    name: 'Montserrat',
+    nameHebrew: 'מונסראט',
+    category: 'fonts',
+    description: 'Urban geometric sans serif typeface',
+    tags: ['geometric', 'modern', 'urban', 'weights'],
+  },
+  {
+    id: 'font-8',
+    name: 'Raleway',
+    nameHebrew: 'רייליווי',
+    category: 'fonts',
+    description: 'Elegant and versatile sans serif',
+    tags: ['elegant', 'versatile', 'modern', 'clean'],
+  },
+];

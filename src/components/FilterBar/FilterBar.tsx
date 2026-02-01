@@ -65,7 +65,7 @@ export function FilterBar({
                   selectedCategory === category.id ? styles.active : ''
                 }`}
               >
-                {category.nameHebrew}
+                {category.name}
               </button>
             ))}
           </div>

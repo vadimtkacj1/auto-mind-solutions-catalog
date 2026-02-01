@@ -1,196 +1,65 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ComponentItem } from '../../data/catalogData';
-import {
-  ScaleButton,
-  SlideButton,
-  RotateButton,
-  MorphButton,
-  RippleButton,
-  BounceButton,
-  GlowButton,
-  NeonButton,
-  GradientButton,
-  ShineButton,
-} from '../CategoryButtons';
-import {
-  NotoSansHebrewFont,
-  AssistantFont,
-  RubikFont,
-} from '../CategoryFonts';
-import {
-  Review1Preview,
-  Review2Preview,
-  Review3Preview,
-  Review4Preview,
-  Review5Preview,
-  Review6Preview,
-} from '../CategoryReviews';
+import { ComponentModal } from '../ComponentModal';
+import { useComponentState } from './useComponentState';
+import { ComponentPreview } from './ComponentPreview';
+import { ComponentFullView } from './ComponentFullView';
 import styles from './ComponentCard.module.css';
 
-interface ComponentCardProps {
+interface Props {
   component: ComponentItem;
   index: number;
 }
 
-const buttonComponents = [
-  ScaleButton,
-  SlideButton,
-  RotateButton,
-  MorphButton,
-  RippleButton,
-  BounceButton,
-  GlowButton,
-  NeonButton,
-  GradientButton,
-  ShineButton,
-];
+export const ComponentCard = React.memo(({ component, index }: Props) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isFav, thumbnail, toggleFav } = useComponentState(component.id);
 
-const fontComponents = [
-  NotoSansHebrewFont,
-  AssistantFont,
-  RubikFont,
-];
-
-const reviewComponents = [
-  Review1Preview,
-  Review2Preview,
-  Review3Preview,
-  Review4Preview,
-  Review5Preview,
-  Review6Preview,
-];
-
-export function ComponentCard({ component, index }: ComponentCardProps) {
-  const getCategoryEmoji = (category: string) => {
-    const emojiMap: Record<string, string> = {
-      'header': '📌',
-      'hero': '🎯',
-      'carousel': '🔄',
-      'review': '⭐',
-      'cta': '🎯',
-      'contact-form': '📝',
-      'faq': '❓',
-      'animations': '✨',
-      'footer': '📍',
-      'color-palettes': '🎨',
-      'fonts': '✍️',
-      'buttons': '🔘',
-    };
-    return emojiMap[category] || '📦';
-  };
-
-  const renderPreview = () => {
-    if (component.colors) {
-      return (
-        <div className={styles.colorPalette}>
-          {component.colors.map((color, idx) => (
-            <div
-              key={idx}
-              className={styles.colorSwatch}
-              style={{ backgroundColor: color }}
-            >
-              <div className={styles.colorCode}>{color}</div>
-            </div>
-          ))}
-        </div>
-      );
-    }
-
-    // Render actual button components for buttons category
-    if (component.category === 'buttons') {
-      const buttonIndex = parseInt(component.id.split('-')[1]) - 1;
-      const ButtonComponent = buttonComponents[buttonIndex];
-
-      if (ButtonComponent) {
-        return (
-          <div className={styles.buttonPreview}>
-            <ButtonComponent
-              isActive={false}
-              onClick={() => console.log('Preview click')}
-            >
-              {component.nameHebrew}
-            </ButtonComponent>
-          </div>
-        );
-      }
-    }
-
-    // Render actual font components for fonts category
-    if (component.category === 'fonts') {
-      const fontIndex = parseInt(component.id.split('-')[1]) - 1;
-      const FontComponent = fontComponents[fontIndex];
-
-      if (FontComponent) {
-        return (
-          <div className={styles.fontPreview}>
-            <FontComponent text="הדגמת טקסט בעברית" />
-          </div>
-        );
-      }
-    }
-
-    // Render review preview components for review category
-    if (component.category === 'review') {
-      const reviewIndex = parseInt(component.id.split('-')[1]) - 1;
-      const ReviewComponent = reviewComponents[reviewIndex];
-
-      if (ReviewComponent) {
-        return (
-          <div className={styles.reviewPreview}>
-            <ReviewComponent />
-          </div>
-        );
-      }
-    }
-
-    // Enhanced preview for other categories
-    return (
-      <div className={styles.previewPlaceholder}>
-        <div className={styles.emojiLarge}>
-          {getCategoryEmoji(component.category)}
-        </div>
-        <div className={styles.previewTitle} dir="rtl">
-          {component.nameHebrew}
-        </div>
-      </div>
-    );
-  };
+  // Extract index from ID (e.g., "hero-1" -> index 0)
+  const compIndex = parseInt(component.id.split('-')[1]) - 1;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, delay: index * 0.03 }}
-      className={styles.card}
-    >
-      {/* Preview Area */}
-      <div className={styles.preview}>
-        {renderPreview()}
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: index * 0.03 }}
+        className={styles.card}
+        onClick={() => setIsModalOpen(true)}
+      >
+        <div className={styles.preview}>
+          <ComponentPreview
+            component={component}
+            thumbnail={thumbnail}
+            compIndex={compIndex}
+          />
 
-        {/* Category Badge */}
-        {component.category !== 'buttons' && (
-          <div className={styles.categoryBadge}>
-            {component.category.replace('-', ' ')}
-          </div>
-        )}
-      </div>
+          <button
+            className={`${styles.favoriteBtn} ${isFav ? styles.favoriteBtnActive : ''}`}
+            onClick={toggleFav}
+            aria-label="Toggle Favorite"
+          >
+            {isFav ? '❤️' : '🤍'}
+          </button>
+        </div>
 
-      {/* Content */}
-      <div className={styles.content} dir="rtl">
-        <div className={styles.header}>
+        <div className={styles.footer}>
           <span className={styles.componentId}>#{component.id}</span>
         </div>
 
-        {component.description && (
-          <p className={styles.description}>{component.description}</p>
-        )}
-      </div>
+        <div className={styles.glow} />
+      </motion.div>
 
-      {/* Glow Effect */}
-      <div className={styles.glow} />
-    </motion.div>
+      <ComponentModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        componentId={component.id}
+      >
+        <ComponentFullView component={component} compIndex={compIndex} />
+      </ComponentModal>
+    </>
   );
-}
+});

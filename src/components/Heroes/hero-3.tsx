@@ -2,7 +2,7 @@ import { Check } from 'lucide-react'
 
 export default function Hero3() {
   return (
-    <section className="bg-foreground text-background relative overflow-hidden py-20 md:py-32">
+    <section className="bg-slate-900 text-white relative overflow-hidden py-20 md:py-32" dir="rtl">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -13,26 +13,26 @@ export default function Hero3() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            The Future of Work Starts Here
+          <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl leading-tight">
+            העתיד של העבודה מתחיל כאן
           </h1>
-          <p className="text-background/80 mb-8 text-lg sm:text-xl">
-            Join thousands of teams who have revolutionized their workflow with our cutting-edge platform.
+          <p className="text-slate-300 mb-8 text-lg sm:text-xl leading-relaxed">
+            הצטרף לאלפי צוותים שחוללו מהפכה בתהליכי העבודה שלהם עם הפלטפורמה המתקדמת שלנו.
           </p>
 
           {/* Features List */}
           <div className="mb-8 flex flex-wrap justify-center gap-4">
-            <div className="flex items-center gap-2">
-              <Check className="h-5 w-5" />
-              <span className="text-sm font-medium">No credit card required</span>
+            <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+              <Check className="h-5 w-5 text-emerald-400" />
+              <span className="text-sm font-medium">ללא כרטיס אשראי</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Check className="h-5 w-5" />
-              <span className="text-sm font-medium">14-day free trial</span>
+            <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+              <Check className="h-5 w-5 text-emerald-400" />
+              <span className="text-sm font-medium">14 ימי ניסיון חינם</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Check className="h-5 w-5" />
-              <span className="text-sm font-medium">Cancel anytime</span>
+            <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+              <Check className="h-5 w-5 text-emerald-400" />
+              <span className="text-sm font-medium">ביטול בכל עת</span>
             </div>
           </div>
 
@@ -40,23 +40,23 @@ export default function Hero3() {
           <div className="mb-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <input
               type="email"
-              placeholder="Enter your email"
-              className="text-foreground w-full rounded-lg px-6 py-3 sm:w-80"
+              placeholder="הכנס את המייל שלך"
+              className="text-slate-900 w-full rounded-lg px-6 py-3 sm:w-80 text-right"
             />
-            <button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full rounded-lg px-8 py-3 font-medium transition-colors sm:w-auto">
-              Get Started
+            <button className="bg-purple-600 text-white hover:bg-purple-700 w-full rounded-lg px-8 py-3 font-medium transition-all duration-200 sm:w-auto shadow-lg hover:shadow-xl">
+              התחל עכשיו
             </button>
           </div>
 
           {/* Social Proof */}
-          <div className="text-background/60 flex flex-wrap items-center justify-center gap-6 text-sm">
-            <div className="flex items-center gap-2">
-              <div className="flex -space-x-2">
+          <div className="text-slate-400 flex flex-wrap items-center justify-center gap-6 text-sm">
+            <div className="flex items-center gap-3">
+              <div className="flex -space-x-2" style={{direction: 'ltr'}}>
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="bg-background/20 h-8 w-8 rounded-full border-2 border-current"></div>
+                  <div key={i} className="bg-purple-500 h-8 w-8 rounded-full border-2 border-slate-900"></div>
                 ))}
               </div>
-              <span>10,000+ developers trust us</span>
+              <span>למעלה מ-10,000 מפתחים סומכים עלינו</span>
             </div>
           </div>
         </div>

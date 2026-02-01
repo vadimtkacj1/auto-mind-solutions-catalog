@@ -1,0 +1,206 @@
+/* Wrapper for the entire preview */
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.previewContainer {
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transform: scale(0.85);
+}
+
+/* Style 1: Simple Line Accordion */
+.lineItem {
+  background: white;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: right;
+  direction: rtl;
+}
+
+.lineTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.lineContent {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.lineItem.open {
+  background: #f9fafb;
+}
+
+/* Style 2: Card Accordion */
+.cardItem {
+  background: white;
+  padding: 0.875rem 1.25rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #111827;
+  text-align: right;
+  direction: rtl;
+}
+
+.cardOpen {
+  background: #f9fafb;
+}
+
+.cardContent {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #f3f4f6;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+/* Style 3: Large Symbol Accordion */
+.symbolItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #d1d5db;
+  text-align: right;
+  direction: rtl;
+  flex-direction: row-reverse;
+}
+
+.symbol {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #374151;
+  margin-left: 1rem;
+}
+
+.symbolTitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+  flex: 1;
+}
+
+.symbolOpen {
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.symbolOpen .symbolTitle {
+  margin-bottom: 0.25rem;
+}
+
+.symbolContent {
+  width: 100%;
+  padding: 0.5rem 0;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* Style 4: Bold Border Accordion */
+.boldHeader {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+  border-bottom: 3px solid #111827;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  text-align: right;
+  direction: rtl;
+  display: inline-block;
+}
+
+.boldItem {
+  padding: 0.875rem 0.5rem;
+  border-bottom: 1px solid #d1d5db;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #111827;
+  text-align: right;
+  direction: rtl;
+}
+
+.boldOpen {
+  background: #f9fafb;
+}
+
+.boldContent {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+/* Style 5: Circle Icon Accordion */
+.circleItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1rem;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: right;
+  direction: rtl;
+  flex-direction: row-reverse;
+}
+
+.circleIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #9ca3af;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-left: 0.75rem;
+}
+
+.circleTitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+  flex: 1;
+}
+
+.circleOpen {
+  flex-direction: column;
+  align-items: flex-start;
+  background: #f9fafb;
+}
+
+.circleOpen .circleTitle {
+  margin-bottom: 0.25rem;
+}
+
+.circleContent {
+  width: 100%;
+  padding: 0.5rem 0 0 2rem;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* Hover effects */
+.lineItem:hover,
+.cardItem:hover,
+.boldItem:hover,
+.circleItem:hover {
+  background: #f3f4f6;
+}

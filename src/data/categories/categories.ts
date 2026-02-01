@@ -1,0 +1,15 @@
+export const categories = [
+  { id: 'header', name: 'Headers', nameHebrew: 'כותרת' },
+  { id: 'hero', name: 'Heroes', nameHebrew: 'באנר ראשי' },
+  { id: 'carousel', name: 'Carousels', nameHebrew: 'קרוסלה' },
+  { id: 'review', name: 'Reviews', nameHebrew: 'ביקורות' },
+  { id: 'cta', name: 'Call To Actions', nameHebrew: 'קריאה לפעולה' },
+  { id: 'contact-form', name: 'Contact Forms', nameHebrew: 'טופס יצירת קשר' },
+  { id: 'faq', name: 'FAQs', nameHebrew: 'שאלות נפוצות' },
+  { id: 'accordion', name: 'Accordions', nameHebrew: 'אקורדיון' },
+  { id: 'buttons', name: 'Buttons', nameHebrew: 'כפתורים' },
+  { id: 'animations', name: 'Animations', nameHebrew: 'אנימציות' },
+  { id: 'footer', name: 'Footers', nameHebrew: 'כותרת תחתונה' },
+  { id: 'color-palettes', name: 'Color Palettes', nameHebrew: 'פלטות צבעים' },
+  { id: 'fonts', name: 'Fonts', nameHebrew: 'פונטים' },
+];
