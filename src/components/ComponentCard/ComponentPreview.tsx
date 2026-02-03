@@ -29,7 +29,9 @@ export const ComponentPreview: React.FC<PreviewProps> = ({ component, thumbnail,
         <div className={styles.colorPalette}>
           {component.colors?.map((color, i) => (
             <div key={i} className={styles.colorSwatch} style={{ backgroundColor: color }}>
-              <div className={styles.colorCode}>{color}</div>
+              <div className={styles.colorCode}>
+                <span className={styles.colorValue}>{color}</span>
+              </div>
             </div>
           ))}
         </div>

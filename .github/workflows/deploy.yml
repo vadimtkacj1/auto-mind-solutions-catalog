@@ -34,7 +34,18 @@ jobs:
           username: ${{ secrets.USER_SERVER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "image.tar.gz"
-          target: "~/"
+          target: "/home/${{ secrets.USER_SERVER }}/"
+
+      - name: Verify file copied
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.IP_SERVER }}
+          username: ${{ secrets.USER_SERVER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            echo "=== Verifying file transfer ==="
+            ls -lh /home/${{ secrets.USER_SERVER }}/image.tar.gz || echo "File not found!"
+            file /home/${{ secrets.USER_SERVER }}/image.tar.gz || echo "Cannot check file type!"
 
       - name: Execute remote commands via SSH
         uses: appleboy/ssh-action@v1.0.3
@@ -46,23 +57,57 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           envs: IMAGE_TAG
           script: |
-            echo "Loading Docker image with tag: $IMAGE_TAG"
-            gunzip -c ~/image.tar.gz | docker load
-            rm ~/image.tar.gz
+            echo "=== Starting deployment process ==="
+            echo "Image tag: $IMAGE_TAG"
 
-            echo "Stopping and removing old container..."
-            docker stop my-front || true
-            docker rm my-front || true
+            echo "=== Checking Docker installation ==="
+            which docker || echo "Docker not found in PATH!"
+            docker --version || sudo docker --version || echo "Cannot run docker command!"
 
-            echo "Starting new container with image my-front:$IMAGE_TAG"
-            docker run -d \
+            echo "=== Checking if port 80 is available ==="
+            sudo netstat -tuln | grep :80 || echo "Port 80 is free"
+
+            echo "=== Checking Docker access ==="
+            if sudo -n docker ps >/dev/null 2>&1; then
+              echo "Using sudo docker"
+              DOCKER_CMD="sudo docker"
+            elif docker ps >/dev/null 2>&1; then
+              echo "Using docker without sudo"
+              DOCKER_CMD="docker"
+            else
+              echo "ERROR: Cannot access Docker! Please add user to docker group or configure sudo."
+              exit 1
+            fi
+
+            echo "=== Checking image archive ==="
+            IMAGE_PATH="/home/$(whoami)/image.tar.gz"
+            ls -lh $IMAGE_PATH || echo "Archive not found!"
+
+            echo "=== Loading Docker image ==="
+            gunzip -c $IMAGE_PATH | $DOCKER_CMD load
+            rm $IMAGE_PATH
+
+            echo "=== Listing available images ==="
+            $DOCKER_CMD images | grep my-front
+
+            echo "=== Stopping and removing old container ==="
+            $DOCKER_CMD stop my-front 2>/dev/null || echo "Container not running"
+            $DOCKER_CMD rm my-front 2>/dev/null || echo "Container not found"
+
+            echo "=== Starting new container ==="
+            $DOCKER_CMD run -d \
               --restart always \
               --name my-front \
               -p 80:80 \
               my-front:$IMAGE_TAG
 
-            echo "Cleaning up old images..."
-            docker image prune -a -f
+            echo "=== Verifying container is running ==="
+            $DOCKER_CMD ps -a | grep my-front
 
-            echo "Deployment completed successfully!"
-            docker ps | grep my-front
+            echo "=== Checking container logs ==="
+            $DOCKER_CMD logs my-front --tail 20
+
+            echo "=== Cleaning up old images ==="
+            $DOCKER_CMD image prune -a -f
+
+            echo "=== Deployment completed! ==="
