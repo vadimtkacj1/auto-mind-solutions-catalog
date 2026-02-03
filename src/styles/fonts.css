@@ -1,0 +1,274 @@
+/* Local Hebrew Fonts */
+
+/* Abraham */
+@font-face {
+  font-family: 'Abraham';
+  src: url('/fonts/Abraham/Abraham-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Alef */
+@font-face {
+  font-family: 'Alef';
+  src: url('/fonts/Alef/Alef-Webfont/Alef-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Alef';
+  src: url('/fonts/Alef/Alef-Webfont/Alef-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Amatica SC */
+@font-face {
+  font-family: 'Amatic SC';
+  src: url('/fonts/Amatica_SC/AmaticaSC-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Amatic SC';
+  src: url('/fonts/Amatica_SC/AmaticaSC-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Anka */
+@font-face {
+  font-family: 'Anka';
+  src: url('/fonts/anka/ankaclm-bold-webfont.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Asakim */
+@font-face {
+  font-family: 'Asakim';
+  src: url('/fonts/asakim/asakim_bold-webfont.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Dorian */
+@font-face {
+  font-family: 'Dorian';
+  src: url('/fonts/dorian/dorianclm-book-webfont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Dorian';
+  src: url('/fonts/dorian/dorianclm-bookitalic-webfont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Drugulin */
+@font-face {
+  font-family: 'Drugulin';
+  src: url('/fonts/drugulin/drugulinclm-bold-webfont.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Drugulin';
+  src: url('/fonts/drugulin/drugulinclm-bolditalic-webfont.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Gan */
+@font-face {
+  font-family: 'Gan';
+  src: url('/fonts/gan/ganclm_bold-webfont.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Gladia */
+@font-face {
+  font-family: 'Gladia';
+  src: url('/fonts/gladiaclm/gladiaclm-bold-webfont.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Hadasim */
+@font-face {
+  font-family: 'Hadasim';
+  src: url('/fonts/hadasimclm/hadasimclm-regular-webfont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hadasim';
+  src: url('/fonts/hadasimclm/hadasimclm-bold-webfont.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hadasim';
+  src: url('/fonts/hadasimclm/hadasimclm-boldoblique-webfont.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Rubik */
+@font-face {
+  font-family: 'Rubik';
+  src: url('/fonts/Rubik/Rubik-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('/fonts/Rubik/Rubik-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('/fonts/Rubik/Rubik-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('/fonts/Rubik/Rubik-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('/fonts/Rubik/Rubik-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Suez One */
+@font-face {
+  font-family: 'Suez One';
+  src: url('/fonts/Suez_One/SuezOne-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Hillel */
+@font-face {
+  font-family: 'Hillel';
+  src: url('/fonts/hillel/hillelclm-medium-webfont.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Horev */
+@font-face {
+  font-family: 'Horev';
+  src: url('/fonts/horev/horevclm-heavy-webfont.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Makabiy */
+@font-face {
+  font-family: 'Makabiy';
+  src: url('/fonts/makabiyg/makabiyg-webfont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Nachlieli */
+@font-face {
+  font-family: 'Nachlieli';
+  src: url('/fonts/nachlieli/nachlieliclm-light-webfont.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nachlieli';
+  src: url('/fonts/nachlieli/nachlieliclm-lightoblique-webfont.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nachlieli';
+  src: url('/fonts/nachlieli/nachlieliclm-bold-webfont.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nachlieli';
+  src: url('/fonts/nachlieli/nachlieliclm-boldoblique-webfont.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Nehama */
+@font-face {
+  font-family: 'Nehama';
+  src: url('/fonts/nehama/nehama-webfont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Noot */
+@font-face {
+  font-family: 'Noot';
+  src: url('/fonts/Noot_April13/Noot.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Stam Ashkenaz */
+@font-face {
+  font-family: 'Stam Ashkenaz';
+  src: url('/fonts/Sofer Stam Ashkenaz/StamAshkenazCLM.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Trashim */
+@font-face {
+  font-family: 'Trashim';
+  src: url('/fonts/trashim/trashimclm-bold-webfont.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* OS Aran */
+@font-face {
+  font-family: 'OS Aran';
+  src: url('/fonts/‏‏‏‏OS-Aran-Free-V2.00/OS Aran_400FFC.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OS Aran';
+  src: url('/fonts/‏‏‏‏OS-Aran-Free-V2.00/OS Aran_W_500FFC.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OS Aran';
+  src: url('/fonts/‏‏‏‏OS-Aran-Free-V2.00/OS Aran_R_600FFC.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}

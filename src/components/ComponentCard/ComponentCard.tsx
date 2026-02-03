@@ -36,6 +36,9 @@ export const ComponentCard = React.memo(({ component, index }: Props) => {
         setShowCopiedToast(true);
         setTimeout(() => setShowCopiedToast(false), 2000);
       });
+    } else if (component.category === 'fonts') {
+      // Don't open modal for fonts
+      return;
     } else {
       setIsModalOpen(true);
     }
@@ -85,7 +88,7 @@ export const ComponentCard = React.memo(({ component, index }: Props) => {
         <div className={styles.glow} />
       </motion.div>
 
-      {component.category !== 'color-palettes' && (
+      {component.category !== 'color-palettes' && component.category !== 'fonts' && (
         <ComponentModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
