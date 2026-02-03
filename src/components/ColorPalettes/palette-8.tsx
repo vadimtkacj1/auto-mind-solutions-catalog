@@ -24,15 +24,15 @@ export function Palette8() {
             {palette.colors.map((color, index) => (
               <div
                 key={index}
-                className="flex items-center gap-6 p-6 rounded-2xl hover:shadow-lg transition-all duration-300 border-2 border-gray-200"
+                className="group flex items-center gap-6 p-6 rounded-2xl transition-all duration-300 border-2 border-gray-200 cursor-pointer"
               >
                 <div
                   className="w-32 h-32 rounded-xl shadow-lg"
                   style={{ backgroundColor: color.hex }}
                 />
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{color.name}</h3>
-                  <div className="flex gap-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">{color.name}</h3>
+                  <div className="flex gap-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div>
                       <p className="text-sm text-gray-500 mb-1">HEX</p>
                       <p className="font-mono text-lg font-semibold text-gray-900">{color.hex}</p>

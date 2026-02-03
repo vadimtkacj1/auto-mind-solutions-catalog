@@ -38,20 +38,18 @@ export function Palette7() {
           {gradients.map((item, index) => (
             <div
               key={index}
-              className="group relative rounded-3xl overflow-hidden shadow-2xl hover:scale-105 transition-all duration-500 cursor-pointer"
+              className="group relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer"
               style={{ height: '300px' }}
             >
               <div
                 className="w-full h-full"
                 style={{ background: item.gradient }}
               />
-              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
-                <div className="text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h3 className="text-3xl font-bold mb-4">{item.name}</h3>
-                  <button className="bg-white text-gray-900 px-6 py-3 rounded-full font-bold hover:scale-110 transition-transform">
-                    Get Code
-                  </button>
-                </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 p-6 transition-all duration-300">
+                <h3 className="text-2xl font-bold text-white mb-2">{item.name}</h3>
+                <p className="text-sm font-mono text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden text-ellipsis">
+                  {item.gradient}
+                </p>
               </div>
             </div>
           ))}
