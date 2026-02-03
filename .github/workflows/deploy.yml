@@ -19,8 +19,13 @@ jobs:
       - name: Build and Save Docker image
         run: |
           # Pass the secret as a build argument
+          echo "Building Docker image with tag: ${{ github.sha }}"
           docker build --build-arg VITE_BASE_URL="${{ secrets.VITE_BASE_URL }}" -t my-front:${{ github.sha }} .
+
+          echo "Saving Docker image to archive..."
           docker save my-front:${{ github.sha }} | gzip > image.tar.gz
+
+          echo "Archive created. Size: $(ls -lh image.tar.gz | awk '{print $5}')"
 
       - name: Copy image to server
         uses: appleboy/scp-action@v0.1.7
@@ -33,22 +38,31 @@ jobs:
 
       - name: Execute remote commands via SSH
         uses: appleboy/ssh-action@v1.0.3
+        env:
+          IMAGE_TAG: ${{ github.sha }}
         with:
           host: ${{ secrets.IP_SERVER }}
           username: ${{ secrets.USER_SERVER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          envs: IMAGE_TAG
           script: |
+            echo "Loading Docker image with tag: $IMAGE_TAG"
             gunzip -c ~/image.tar.gz | docker load
             rm ~/image.tar.gz
-            
+
+            echo "Stopping and removing old container..."
             docker stop my-front || true
             docker rm my-front || true
-            
-            # Map Server Port 80 to Container Port 80
+
+            echo "Starting new container with image my-front:$IMAGE_TAG"
             docker run -d \
               --restart always \
               --name my-front \
               -p 80:80 \
-              my-front:${{ github.sha }}
-            
+              my-front:$IMAGE_TAG
+
+            echo "Cleaning up old images..."
             docker image prune -a -f
+
+            echo "Deployment completed successfully!"
+            docker ps | grep my-front
